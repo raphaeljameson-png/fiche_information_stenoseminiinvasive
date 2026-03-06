@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Fiche d'information patient — Canal lombaire étroit (Mini-invasif / Endoscopie)</title>
+<style>
+  :root {
+    --ink:#111;
+    --muted:#444;
+    --accent:#0b6fa4;      /* bleu */
+    --accent2:#22b8b8;     /* turquoise */
+    --bg:#fff;
+    --border:#d9d9d9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #f3f5f7;
+    color: var(--ink);
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,Helvetica,sans-serif;
+    line-height: 1.35;
+  }
+  .toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .toolbar .btn {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .toolbar .btn.primary {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 22px auto;
+    padding: 0 16px 28px;
+  }
+  .page {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 26px 34px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.06);
+  }
+  header.top {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--accent);
+  }
+  header.top img {
+    width: 110px;
+    height: auto;
+  }
+  .brand h1 {
+    margin: 0;
+    font-size: 18px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+  }
+  .brand .line {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 2px;
+  }
+  .doc-title {
+    margin-top: 18px;
+    border-left: 6px solid var(--accent2);
+    padding-left: 14px;
+  }
+  .doc-title h2 {
+    margin: 0;
+    font-size: 22px;
+  }
+  .doc-title .meta {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    display: flex;
+    gap: 30px;
+  }
+
+  h3 {
+    margin: 22px 0 8px;
+    font-size: 16px;
+    color: var(--accent);
+  }
+  h4 {
+    margin: 14px 0 6px;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  p { margin: 8px 0; }
+  ul, ol { margin: 8px 0 8px 18px; }
+  li { margin: 4px 0; }
+
+  .note {
+    border: 1px solid var(--border);
+    border-left: 6px solid var(--accent2);
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #fbfeff;
+    margin: 12px 0;
+  }
+  .warn {
+    border-left-color: #d93025;
+    background: #fff9f8;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 14px;
+    font-size: 13px;
+  }
+  th, td {
+    border: 1px solid var(--border);
+    padding: 8px 10px;
+    vertical-align: top;
+  }
+  th {
+    background: #f6f8fa;
+    text-align: left;
+  }
+
+  .hr {
+    margin: 18px 0;
+    height: 1px;
+    background: var(--border);
+    border: 0;
+  }
+
+  footer {
+    margin-top: 18px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .toolbar { display: none; }
+    .wrap { margin: 0; padding: 0; }
+    .page {
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      padding: 14mm 14mm;
+    }
+    a { color: inherit; text-decoration: none; }
+    @page { size: A4; margin: 12mm; }
+  }
+
+/* Print layout improvements */
+@media print {
+  .no-print, .no-print * { display: none !important; }
+}
+@page { margin: 12mm; }
+</style>
+</head>
+<body>
+<div class="toolbar no-print">
+<div class="toolbar-inner">
+<div style="font-weight:700;">Fiche Canal Lombaire Étroit (Mini-invasif)</div>
+<button class="btn primary" onclick="window.print()">Imprimer / Sauvegarder PDF</button>
+</div>
+</div>
+<div class="wrap">
+<div class="page">
+<header class="top">
+<img alt="Logo Espace Francilien du Rachis" src="logo.png"/>
+<div class="brand">
+<h1>ESPACE FRANCILIEN DU RACHIS</h1>
+<div class="line">95, rue de Prony — 75017 Paris | rachis.paris</div>
+<div class="line">Dr Raphaël Jameson · Dr Mayalen Lamerain · Dr Christophe Travert</div>
+</div>
+</header>
+<div class="doc-title">
+<h2>FICHE D'INFORMATION PATIENT — Sténose lombaire (Canal lombaire étroit) par voie mini-invasive ou endoscopique</h2>
+<div class="meta">
+<div><strong>Document remis le :</strong> ____ / ____ / ________</div>
+<div><strong>Patient(e) :</strong> ___________________________________</div>
+</div>
+</div>
+<div class="note">
+        Cette fiche d'information a été conçue pour vous fournir un support complet à l'information orale délivrée par votre chirurgien au cours des consultations.
+        Elle ne se substitue pas à l'entretien direct avec votre médecin, qui reste le seul à pouvoir adapter l'information à votre situation personnelle et à répondre à vos questions.
+        Conformément à la législation en vigueur (loi du 4 mars 2002 relative aux droits des malades), vous devez disposer d'une information claire, loyale et appropriée avant toute intervention.
+        Ce document en constitue la trace écrite.
+      </div>
+
+<h3>CHAPITRE 1 — COMPRENDRE LA STÉNOSE LOMBAIRE (CANAL ÉTROIT)</h3>
+<h4>1.1 Rappel anatomique</h4>
+<p>La colonne vertébrale lombaire est constituée de vertèbres séparées par des disques intervertébraux. À l'arrière de ces structures se trouve le <strong>canal rachidien</strong>. Ce canal a pour fonction vitale de protéger les racines nerveuses (qui forment la "queue de cheval") descendant vers vos membres inférieurs.</p>
+
+<h4>1.2 Qu'est-ce que le canal lombaire étroit ?</h4>
+<p>Avec l'âge, les structures de la colonne s'usent, c'est l'<strong>arthrose lombaire</strong>. Ce vieillissement naturel entraîne plusieurs modifications : les articulations à l'arrière des vertèbres s'épaississent (hypertrophie facettaire), les ligaments qui tapissent le canal (ligaments jaunes) perdent leur élasticité et s'épaississent, et les disques peuvent s'affaisser et bomber vers l'arrière.</p>
+<p>L'accumulation de ces phénomènes entraîne un rétrécissement progressif du canal rachidien : c'est la <strong>sténose lombaire</strong>. Les nerfs se retrouvent "à l'étroit" et comprimés, ce qui perturbe leur vascularisation et leur fonctionnement, particulièrement lors de l'effort.</p>
+
+<h4>1.3 Les symptômes de la sténose lombaire</h4>
+<p>L'évolution de cette pathologie est très lente (souvent sur plusieurs années). Les manifestations cliniques les plus fréquentes sont :</p>
+<ul>
+<li><strong>La claudication neurogène (symptôme typique) :</strong> Apparition de douleurs, de crampes, d'une lourdeur extrême ou de fourmillements dans les fesses et les jambes lors de la marche ou de la station debout prolongée. Le périmètre de marche se réduit progressivement.</li>
+<li><strong>Le « signe du caddie » :</strong> Ces douleurs vous obligent à vous arrêter. Elles se calment rapidement lorsque vous vous asseyez ou que vous vous penchez en avant (comme pour vous appuyer sur un caddie de supermarché), car cette position agrandit naturellement le diamètre du canal rachidien.</li>
+<li><strong>Sciatique ou cruralgie :</strong> Douleur fulgurante descendant dans une jambe, liée à la compression d'un nerf spécifique.</li>
+<li><strong>Lombalgie (Mal de dos) :</strong> Douleurs dans le bas du dos liées à l'arthrose. <em>Attention, la chirurgie du canal étroit vise à soulager les jambes, mais elle ne supprime pas l'arthrose responsable du mal de dos.</em></li>
+</ul>
+
+<h3>CHAPITRE 2 — LES OPTIONS THÉRAPEUTIQUES NON CHIRURGICALES</h3>
+<p>La chirurgie n'est proposée qu'après l'échec d'un traitement médical bien conduit (sauf rares cas d'urgence). L'aggravation n'est pas inéluctable et le risque de paralysie brutale est extrêmement faible.</p>
+
+<h4>2.1 Le traitement médicamenteux</h4>
+<ul>
+<li><strong>Antalgiques et anti-inflammatoires</strong> : Pour diminuer la douleur et l'inflammation locale autour des nerfs.</li>
+<li><strong>Traitements des douleurs neuropathiques</strong> : Médicaments spécifiques (prégabaline, gabapentine) pour soulager les fourmillements, décharges électriques et sensations de brûlure liées à la souffrance du nerf.</li>
+</ul>
+
+<h4>2.2 La kinésithérapie</h4>
+<ul>
+<li>Apprentissage des postures de "dé-lordose" (réduire la cambrure du dos) pour ouvrir le canal.</li>
+<li>Renforcement de la sangle abdominale (gainage) pour stabiliser la colonne et compenser la faiblesse liée à l'arthrose.</li>
+</ul>
+
+<h4>2.3 Les infiltrations</h4>
+<p>En cas d'inefficacité des médicaments, des <strong>infiltrations épidurales de corticoïdes</strong> peuvent être réalisées (souvent sous contrôle radiologique). L'objectif est de diminuer l'inflammation (le gonflement) autour des nerfs pour leur redonner un peu d'espace. L'efficacité est très variable (de quelques semaines à plusieurs mois) et permet souvent de retarder l'échéance chirurgicale.</p>
+
+<h3>CHAPITRE 3 — LES INDICATIONS OPÉRATOIRES ET LES SIGNES D'ALERTE</h3>
+<h4>3.1 Les indications chirurgicales habituelles</h4>
+<p>La chirurgie est envisagée uniquement si votre qualité de vie est considérablement altérée :</p>
+<ul>
+<li>Échec du traitement médical et des infiltrations.</li>
+<li>Périmètre de marche de plus en plus réduit, limitant votre autonomie (ex: impossibilité de faire ses courses).</li>
+<li>L'imagerie (Scanner ou IRM) confirme une sténose sévère qui concorde avec vos symptômes.</li>
+<li>L'âge n'est pas une contre-indication absolue : c'est l'état de santé général (évalué par l'anesthésiste) qui prime. Les techniques mini-invasives sont d'ailleurs très adaptées aux patients âgés car elles sont moins traumatisantes.</li>
+</ul>
+
+<h4>3.2 Signes d'alerte — quand consulter en urgence</h4>
+<div class="note warn">
+<table>
+<thead>
+<tr><th>Signe d'alerte</th><th>Description</th><th>Degré d'urgence</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Syndrome de la queue de cheval</strong></td>
+<td>Difficultés à uriner, incontinence, insensibilité de la région périnéale (autour de l'anus)</td>
+<td><strong>URGENCE ABSOLUE</strong> — consultation le jour même</td>
+</tr>
+<tr>
+<td><strong>Déficit moteur sévère</strong></td>
+<td>Impossibilité soudaine de relever le pied (pied tombant), jambe qui « lâche » à la marche</td>
+<td><strong>URGENCE</strong> — intervention rapide</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3>CHAPITRE 4 — LES OPTIONS CHIRURGICALES (TECHNIQUES D'ÉPARGNE MUSCULAIRE)</h3>
+<h4>4.1 Principes de l'intervention (Libération postérieure sans arthrodèse)</h4>
+<p>Le but de l'intervention est de <strong>supprimer la compression des nerfs</strong> en retirant l'excès de ligaments jaunes et les becs osseux arthrosiques. C'est un nettoyage (calibrage) du canal. Sauf cas d'instabilité avérée de votre colonne (spondylolisthésis), cette opération se fait <strong>sans mise en place de vis ou de plaques (pas d'arthrodèse)</strong>.</p>
+
+<h4>4.2 Les techniques mini-invasives et endoscopiques</h4>
+<p>Historiquement, on réalisait de grandes incisions au milieu du dos en décollant massivement les muscles. Aujourd'hui, nous privilégions les techniques d'<strong>épargne musculaire</strong>, qui offrent des suites opératoires beaucoup plus simples.</p>
+<ul>
+<li><strong>Abord tubulaire (Mini-invasif) :</strong> Le chirurgien passe à travers les fibres musculaires à l'aide de tubes dilatateurs, sans sectionner les muscles. Il utilise un microscope opératoire.</li>
+<li><strong>Endoscopie (uni ou biportale) :</strong> Utilisation d'une ou deux incisions millimétriques pour insérer une caméra Haute Définition (HD) et des micro-instruments, sous irrigation continue d'eau.</li>
+</ul>
+<p><strong>L'avantage majeur :</strong> Le chirurgien réalise souvent une décompression bilatérale par un abord unilatéral. Il passe d'un seul côté pour nettoyer le canal, puis oriente ses instruments sous l'os pour nettoyer l'autre côté. L'architecture osseuse et musculaire est préservée, garantissant la stabilité naturelle de votre dos.</p>
+
+<h3>CHAPITRE 5 — RÉSULTATS ATTENDUS, COMPLICATIONS ET RISQUES</h3>
+<h4>5.1 Résultats attendus</h4>
+<ul>
+<li>Dans <strong>80 à 85 % des cas</strong>, l'intervention apporte une amélioration très significative du périmètre de marche et la disparition des douleurs radiculaires (sciatique/cruralgie).</li>
+<li><strong>La "mémoire du nerf" :</strong> La récupération des troubles de la sensibilité (fourmillements, anesthésie) et de la force peut être lente (plusieurs mois), voire incomplète. Si le nerf a été écrasé pendant des années, il peut garder des séquelles (neuropathie chronique).</li>
+<li><strong>La lombalgie (mal de dos) :</strong> L'opération ne guérit pas l'arthrose lombaire. Des douleurs dans le bas du dos peuvent persister et nécessiteront un entretien musculaire (kinésithérapie).</li>
+</ul>
+
+<h4>5.2 Complications possibles (Focus sur la brèche durale)</h4>
+<p>Les techniques mini-invasives réduisent considérablement les risques (notamment infectieux et hémorragiques), mais la chirurgie du canal étroit reste minutieuse car l'espace de travail est exigu.</p>
+
+<p><strong>Brèche durale (Déchirure de la membrane des nerfs)</strong></p>
+<ul>
+<li><strong>C'est le risque le plus fréquent dans cette pathologie (3 à 10 %).</strong> Le ligament jaune épaissi est souvent très adhérent (collé) à la dure-mère (l'enveloppe des nerfs). En le retirant, cette enveloppe peut se déchirer.</li>
+<li><strong>Conséquence :</strong> Une fuite de liquide céphalo-rachidien.</li>
+<li><strong>Traitement :</strong> Elle est réparée au bloc opératoire (suture ou patch biologique). Cela impose généralement un <strong>alitement strict (rester couché à plat) de 24 à 48 heures</strong> après l'opération pour éviter de violents maux de tête en position debout. Elle guérit sans séquelle neurologique.</li>
+</ul>
+
+<p><strong>Hématome postopératoire</strong></p>
+<ul>
+<li><strong>Fréquence : 1 %</strong>. Un saignement interne peut venir comprimer les nerfs et nécessiter une réintervention rapide d'évacuation. La reprise de la marche le jour même limite ce risque.</li>
+</ul>
+
+<p><strong>Infection du site opératoire</strong></p>
+<ul>
+<li><strong>Fréquence : &lt; 1 %</strong>. Risque quasi nul avec les techniques endoscopiques sous eau. L'arrêt du tabac est primordial pour éviter cette complication.</li>
+</ul>
+
+<p><strong>Lésion d'une racine nerveuse</strong></p>
+<ul>
+<li><strong>Fréquence : 1 à 2 %</strong>. L'utilisation du microscope ou de la caméra HD minimise ce risque, mais une irritation transitoire du nerf manipulé est fréquente les premiers jours.</li>
+</ul>
+
+<p><strong>Récidive (Resténose) ou Instabilité secondaire</strong></p>
+<ul>
+<li>L'arthrose continue d'évoluer avec l'âge. À long terme, le canal peut se rétrécir à nouveau, ou la vertèbre peut glisser (spondylolisthésis), ce qui peut nécessiter une nouvelle intervention avec fixation (arthrodèse) des années plus tard.</li>
+</ul>
+
+<h3>CHAPITRE 6 — HOSPITALISATION, SUITES OPÉRATOIRES ET CONVALESCENCE</h3>
+<h4>6.1 Hospitalisation et Suites immédiates</h4>
+<ul>
+<li><strong>Type de séjour :</strong> Souvent <strong>ambulatoire</strong> (sortie le soir même) ou courte hospitalisation (1 à 2 nuits), selon votre âge, votre autonomie et la survenue éventuelle d'une brèche durale.</li>
+<li><strong>Lever précoce :</strong> Il est autorisé et vivement encouragé le jour même de l'intervention (sauf en cas de brèche durale).</li>
+<li><strong>Douleurs post-opératoires :</strong> Les douleurs au niveau de la cicatrice sont généralement modérées grâce à l'épargne musculaire. Elles sont bien contrôlées par les antalgiques classiques.</li>
+</ul>
+
+<h4>6.2 La Rééducation post-opératoire (Les 3 phases)</h4>
+<p>La rééducation est fondamentale, mais elle doit être progressive pour respecter la cicatrisation tissulaire.</p>
+
+<p><strong>Phase 1 : La cicatrisation (Semaines 0 à 4)</strong></p>
+<ul>
+<li><strong>La marche est votre seule rééducation.</strong> Marchez tous les jours, à votre rythme, en fractionnant (plusieurs petites marches valent mieux qu'une longue).</li>
+<li>Aucune kinésithérapie active du dos n'est requise.</li>
+<li>On se lève du lit "en bloc" (technique de la bûche).</li>
+<li><strong>Interdit :</strong> Port de charges (&gt; 5 kg), flexions répétées en avant, torsions brusques, longs trajets en voiture. Pas de position assise basse prolongée.</li>
+</ul>
+
+<p><strong>Phase 2 : Le réveil musculaire (Semaines 4 à 8)</strong></p>
+<ul>
+<li>Début de la <strong>kinésithérapie active</strong> (après la visite de contrôle chirurgical).</li>
+<li>Travail de <strong>gainage isométrique</strong> (renforcement de la sangle abdominale profonde et des muscles lombaires sans mouvement brusque de la colonne).</li>
+<li>Apprentissage de la bascule du bassin (rétroversion) et des postures de "dé-lordose" pour protéger le canal rachidien.</li>
+<li>Étirement doux des membres inférieurs (ischio-jambiers, psoas).</li>
+<li>Reprise des sports doux en décharge : natation (dos crawlé ou crawl, éviter la brasse cambrée), vélo d'appartement.</li>
+</ul>
+
+<p><strong>Phase 3 : La récupération fonctionnelle (À partir de 2 à 3 mois)</strong></p>
+<ul>
+<li>Intensification du renforcement musculaire.</li>
+<li>Proprioception et équilibre.</li>
+<li>Reprise progressive des activités physiques plus soutenues ou des travaux physiques lourds, en appliquant les principes d'ergonomie appris avec le kinésithérapeute (plier les genoux pour ramasser un objet, etc.).</li>
+</ul>
+
+<h4>6.3 Reprises d'activités — chronologie indicative</h4>
+<table>
+<thead><tr><th>Activité</th><th>Délai approximatif</th><th>Conditions</th></tr></thead>
+<tbody>
+<tr><td>Marche simple (quotidienne)</td><td>Dès J+0</td><td>Progressive, indispensable à la guérison</td></tr>
+<tr><td>Position assise (repas, détente)</td><td>Dès J+0</td><td>Sur siège ferme et haut, avec pauses régulières</td></tr>
+<tr><td>Conduite automobile</td><td>2 à 3 semaines</td><td>Dès que le freinage d'urgence est possible sans douleur</td></tr>
+<tr><td>Arrêt de travail (bureau/sédentaire)</td><td>3 à 4 semaines</td><td>Selon la fatigue et le temps de trajet</td></tr>
+<tr><td>Arrêt de travail (physique lourd)</td><td>2 à 3 mois</td><td>Reprise adaptée, éviter le port de charges lourdes</td></tr>
+<tr><td>Sport doux (natation, vélo fixe)</td><td>4 semaines</td><td>Après cicatrisation complète de la peau</td></tr>
+</tbody>
+</table>
+
+<h3>FOIRE AUX QUESTIONS (FAQ) — LES 15 QUESTIONS LES PLUS POSÉES</h3>
+<div class="note">
+<p><strong>1. En quoi consiste exactement l'opération "mini-invasive" ?</strong><br>
+Contrairement à la chirurgie classique qui ouvre grand le dos, on passe à travers les fibres musculaires à l'aide de petits tubes ou d'une caméra (endoscope). L'os et les ligaments qui compriment le nerf sont "grattés" avec des micro-instruments, sans endommager la musculature.</p>
+
+<p><strong>2. Est-ce que l'opération guérit aussi le mal de dos (lombalgie) ?</strong><br>
+Non. L'objectif est de libérer les nerfs pour que vous puissiez remarcher sans douleur dans les jambes. Le mal de dos est dû à l'arthrose globale de vos vertèbres, qui reste présente. C'est le rôle de la rééducation de la gérer ensuite.</p>
+
+<p><strong>3. Vais-je avoir des vis ou des plaques (arthrodèse) ?</strong><br>
+Non. C'est une libération simple. Sauf si votre colonne présente une instabilité (vertèbre qui glisse) diagnostiquée avant l'opération, aucun matériel n'est implanté.</p>
+
+<p><strong>4. L'opération se fait-elle au laser ?</strong><br>
+Non, c'est une idée reçue. On utilise des micro-fraises rotatives et des pinces extrêmement fines pour grignoter l'os et le ligament. Le laser n'est pas adapté pour cela.</p>
+
+<p><strong>5. Est-ce que je risque d'être paralysé(e) ?</strong><br>
+C'est la peur n°1, mais ce risque est exceptionnel (proche de zéro). La moelle épinière s'arrête beaucoup plus haut dans le dos. Dans le bas du dos (lombaire), il n'y a que des racines nerveuses qui sont beaucoup plus résistantes aux manipulations chirurgicales.</p>
+
+<p><strong>6. Combien de temps dure l'hospitalisation ?</strong><br>
+Généralement, c'est une chirurgie ambulatoire (sortie le jour même) ou nécessitant une seule nuit d'hospitalisation.</p>
+
+<p><strong>7. Est-ce douloureux au réveil ?</strong><br>
+Beaucoup moins qu'une chirurgie classique. Comme les muscles du dos n'ont pas été coupés ou écrasés par de gros écarteurs, les douleurs lombaires post-opératoires sont très modérées.</p>
+
+<p><strong>8. À quel âge est-il trop tard pour se faire opérer ?</strong><br>
+Il n'y a pas de limite d'âge stricte. L'âge physiologique (l'état de votre cœur, de vos poumons) compte plus que l'âge civil. Les techniques mini-invasives sont justement privilégiées chez les personnes âgées (80 ans et plus) car elles entraînent moins de perte de sang et une récupération plus rapide.</p>
+
+<p><strong>9. Combien de temps avant de pouvoir marcher normalement ?</strong><br>
+Dès le réveil, la sensation de lourdeur dans les jambes a souvent disparu. Le périmètre de marche augmente progressivement au fil des semaines.</p>
+
+<p><strong>10. Qu'est-ce qu'une "brèche durale" ?</strong><br>
+C'est une petite déchirure de l'enveloppe qui entoure les nerfs, provoquant une fuite d'eau (liquide céphalo-rachidien). C'est le risque le plus fréquent de cette chirurgie. On la répare au bloc, mais elle vous obligera à rester allongé strict à plat pendant 24 à 48 heures pour éviter de violents maux de tête.</p>
+
+<p><strong>11. Quelle sera la taille de la cicatrice ?</strong><br>
+Elle varie de 1 cm (en endoscopie) à 3 ou 4 cm (en mini-invasif tubulaire). Elle est souvent invisible après quelques mois.</p>
+
+<p><strong>12. Dois-je porter un corset après l'opération ?</strong><br>
+Non. L'avantage du mini-invasif est de conserver vos propres muscles et ligaments pour stabiliser le dos. Une simple ceinture lombaire de maintien peut parfois être prescrite pour votre confort les premiers jours.</p>
+
+<p><strong>13. Le canal peut-il se rétrécir à nouveau avec le temps ?</strong><br>
+Oui. L'arthrose est une maladie qui évolue avec le vieillissement. Une "resténose" (nouveau rétrécissement) peut survenir des années plus tard sur le même niveau ou sur les vertèbres voisines.</p>
+
+<p><strong>14. Quand pourrai-je reprendre la conduite automobile ?</strong><br>
+Généralement entre 2 et 3 semaines, à condition de pouvoir effectuer un mouvement de freinage d'urgence sans aucune douleur ni faiblesse.</p>
+
+<p><strong>15. Comment se déroule la rééducation avec le kiné ?</strong><br>
+Le premier mois, vous ne faites que de la marche. La kinésithérapie commence vers le 1er mois avec du renforcement profond (gainage) et l'apprentissage des bonnes postures pour protéger votre dos.</p>
+</div>
+
+<h3>QUESTIONS À POSER À VOTRE CHIRURGIEN</h3>
+<ol>
+<li>Me proposez-vous une approche tubulaire ou une endoscopie pour mon cas ?</li>
+<li>Sur combien d'étages (niveaux) devez-vous intervenir ?</li>
+<li>Pensez-vous que mon état de santé permette une chirurgie en ambulatoire ?</li>
+<li>Quand et comment dois-je arrêter mes éventuels traitements anticoagulants ?</li>
+<li>Dois-je prendre rendez-vous avec un kinésithérapeute en avance pour le mois prochain ?</li>
+</ol>
+
+<h3>CONSENTEMENT ÉCLAIRÉ</h3>
+<p>J'atteste avoir reçu cette fiche d'information et en avoir pris connaissance. J'ai pu poser les questions que je souhaitais et j'ai obtenu des réponses satisfaisantes. J'ai compris la nature de l'intervention de décompression lombaire (laminectomie/calibrage), l'approche mini-invasive proposée, ses bénéfices attendus (sur la claudication neurogène) ainsi que ses risques, notamment l'absence d'effet garanti sur le mal de dos et la possibilité d'une brèche durale imposant un alitement post-opératoire.</p>
+<p><strong>Date :</strong> </p>
+
+<div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:10px;"><p style="margin:0;flex:1;min-width:280px;"><strong>Nom et prénom du patient : </strong>________________________________</p><p style="margin:0;flex:1;min-width:280px;"><strong>Signature du patient :</strong> ________________________________</p></div>
+<footer>
+<div><strong>Espace Francilien du Rachis</strong> — 95, rue de Prony, 75017 Paris</div>
+<div>Dr Raphaël Jameson : dr.jameson@rachis.paris · Dr Mayalen Lamerain : dr.mlamerain@gmail.com · Dr Christophe Travert : dr.ctravert@gmail.com</div>
+<div><strong>rachis.paris</strong></div>
+</footer>
+</div>
+</div>
+</body>
+</html>
